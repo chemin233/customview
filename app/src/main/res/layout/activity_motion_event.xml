@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.a00327927.customview.MotionGroupA
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a00327927.customview.MotionEventActivity">
+
+    <com.example.a00327927.customview.MotionGroupB
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@color/colorPrimaryDark"
+        >
+        <com.example.a00327927.customview.MotionView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/colorAccent"
+            />
+
+    </com.example.a00327927.customview.MotionGroupB>
+
+</com.example.a00327927.customview.MotionGroupA>
