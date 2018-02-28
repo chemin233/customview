@@ -18,13 +18,13 @@ import android.view.View;
 public class RadarView extends View {
 
     private Paint mPaint;
-    private int side=5;
-    private float radius=40;//雷达图间隔
+    private int side=6;//雷达图
+    private float radius=500;//雷达图半径
     private int centerX;
     private Path mPath;
     private float angle;
     private int centerY;
-    private int count=5;//绘制的环数
+    private int count=6;//绘制的环数
 
     public RadarView(Context context) {
         this(context,null);
@@ -52,21 +52,22 @@ public class RadarView extends View {
 //        radius =Math.min(w,h)/2*0.9f;
         centerX =w/2;
         centerY =h/2;
-
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawRadar(canvas);//绘制多边形
+        drawLine(canvas);
     }
 
     private void drawRadar(Canvas canvas) {
 
         angle = (float) (2*Math.PI/side);
-        for (int i = 0; i < side; i++) {
-            float currentR=i*radius;
-            Log.e("cm","currentR--"+currentR+",angle--"+angle+",radius---"+radius);
+        float divider=radius/(side-1);
+        for (int i = 0; i <=side; i++) {
+            float currentR=i*divider;
+            Log.e("cm","currentR--"+currentR+",angle--"+angle+",radius---"+divider);
 
             mPath.reset();
             for (int j=0;j<count;j++){
@@ -85,6 +86,22 @@ public class RadarView extends View {
             canvas.drawPath(mPath,mPaint);
         }
 
+    }
+
+    /**
+     * @param canvas
+     * draw line from
+     */
+    private void drawLine(Canvas canvas) {
+
+        for(int i=0;i<side;i++){
+            mPath.reset();
+            mPath.moveTo(centerX,centerY);
+            float x= (float) (centerX+ radius * Math.cos(angle * i));
+            float y= (float) (centerY+ radius * Math.sin(angle * i));
+            mPath.lineTo(x,y);
+            canvas.drawPath(mPath,mPaint);
+        }
     }
 
 
