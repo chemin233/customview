@@ -1,5 +1,6 @@
 package com.example.a00327927.customview;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -7,6 +8,9 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
+
+import java.util.Calendar;
 
 /**
  * Created by chemin on 2018/1/15 20:01.
@@ -19,6 +23,8 @@ public class DrawPath extends View {
     private Path path;
     private int mViewWidth;
     private int mViewHeight;
+    private float mDegree;
+    private ValueAnimator valueAnimator;
 
 
     public DrawPath(Context context) {
@@ -39,6 +45,31 @@ public class DrawPath extends View {
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
         path=new Path();
 
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int mode=MeasureSpec.getMode(widthMeasureSpec);
+
+        int width=MeasureSpec.getSize(widthMeasureSpec);
+        int height=MeasureSpec.getSize(heightMeasureSpec);
+        int x=0,y=0;
+        switch (mode){
+            case MeasureSpec.AT_MOST:
+                x=400;
+                y=400;
+                break;
+            case MeasureSpec.EXACTLY:
+                x=width;
+                y=height;
+                break;
+            case MeasureSpec.UNSPECIFIED:
+                x=width;
+                y=height;
+                break;
+        }
+        setMeasuredDimension(x,y);
     }
 
     @Override
@@ -68,9 +99,11 @@ public class DrawPath extends View {
 //
 //        canvas.drawPath(path,paint);
 
+
         paint.setStyle(Paint.Style.FILL);
 
         canvas.translate(mViewWidth / 2, mViewHeight / 2);
+        canvas.rotate(mDegree);
 
         canvas.rotate(-150);
         Path path1 = new Path();
@@ -96,6 +129,22 @@ public class DrawPath extends View {
         paint.setStyle(Paint.Style.STROKE);
         path1.addCircle(0,0,200, Path.Direction.CW);
         canvas.drawPath(path1,paint);
+
+        if (valueAnimator==null){
+            valueAnimator = ValueAnimator.ofFloat(0,360);
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    mDegree= (float) animation.getAnimatedValue();
+                    invalidate();
+                }
+            });
+
+            valueAnimator.setInterpolator(new LinearInterpolator());
+            valueAnimator.setRepeatCount(-1);
+            valueAnimator.setDuration(3*1000);
+            valueAnimator.start();
+        }
 
 
 
