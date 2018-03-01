@@ -127,6 +127,10 @@ public class RadarView extends View {
         //绘制path
     }
 
+    /**
+     * @param canvas
+     * 绘制覆盖区域
+     */
     private void drawRadar(Canvas canvas) {
 
         angle = (float) (2*Math.PI/side);

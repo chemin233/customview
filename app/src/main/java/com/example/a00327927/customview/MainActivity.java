@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.a00327927.animator.ResilientBallActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button tv1,tv2,tv3;
@@ -13,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn5;
     private Button btn6;
     private Button btn7;
+    private Button btn8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +33,14 @@ public class MainActivity extends AppCompatActivity {
         btn5= (Button) findViewById(R.id.custom_bt_circle_by_bezier);
         btn6= (Button) findViewById(R.id.custom_bt_pathview);
         btn7= (Button) findViewById(R.id.custom_bt_pathmeasure);
+        btn8= (Button) findViewById(R.id.custom_bt_resilient);
     }
     private void initData() {
 
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MotionEventActivity.class));
+                startActivity(new Intent(MainActivity.this,TestViewActivity.class));
             }
         });
 
@@ -80,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,PathMeasureActivity.class));
+            }
+        });
+
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ResilientBallActivity.class));
             }
         });
     }

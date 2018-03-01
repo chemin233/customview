@@ -31,6 +31,8 @@
         </activity>
         <activity android:name=".MotionEventActivity">
         </activity>
+        <activity android:name="com.example.a00327927.animator.ResilientBallActivity">
+        </activity>
     </application>
 
 </manifest>

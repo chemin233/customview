@@ -57,7 +57,7 @@ public class TestView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //贝塞尔曲线 画圆
-//        drawCircle(canvas);
+        drawCircle(canvas);
 
 
 
@@ -72,6 +72,7 @@ public class TestView extends View {
 
         path.cubicTo(radius,-C*radius,C*radius,-radius,0,-radius);
         canvas.drawPath(path,mPaint);
+
         path.cubicTo(-C*radius,-radius,-radius,-C*radius,-radius,0);
         canvas.drawPath(path,mPaint);
 
@@ -81,10 +82,10 @@ public class TestView extends View {
         //-------------------
         canvas.translate(0,2*radius);
         path.moveTo(0,radius);
-        path.cubicTo(C*radius,radius,2*radius,C*radius,2*radius,0);
+        path.cubicTo(C*radius,radius,radius+60,C*radius,radius+60,0);
         canvas.drawPath(path,mPaint);
 
-        path.cubicTo(2*radius,-C*radius,C*radius,-radius,0,-radius);
+        path.cubicTo(radius+60,-C*radius,radius,-radius,0,-radius);
         canvas.drawPath(path,mPaint);
         path.cubicTo(-C*radius,-radius,-radius,-C*radius,-radius,0);
         canvas.drawPath(path,mPaint);

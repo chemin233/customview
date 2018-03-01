@@ -53,5 +53,12 @@
         android:text="PathMeasure的使用"
         />
 
+    <Button
+        android:id="@+id/custom_bt_resilient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="弹性小球"
+        />
+
 
 </LinearLayout>
