@@ -60,5 +60,12 @@
         android:text="弹性小球"
         />
 
+    <Button
+        android:id="@+id/custom_bt_custom_paint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义画笔"
+        />
+
 
 </LinearLayout>

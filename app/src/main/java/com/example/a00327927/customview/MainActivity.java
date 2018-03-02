@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn6;
     private Button btn7;
     private Button btn8;
+    private Button btn9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btn6= (Button) findViewById(R.id.custom_bt_pathview);
         btn7= (Button) findViewById(R.id.custom_bt_pathmeasure);
         btn8= (Button) findViewById(R.id.custom_bt_resilient);
+        btn9= (Button) findViewById(R.id.custom_bt_custom_paint);
     }
     private void initData() {
 
@@ -91,6 +93,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,ResilientBallActivity.class));
+            }
+        });
+
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CustomPaintActivity.class));
             }
         });
     }

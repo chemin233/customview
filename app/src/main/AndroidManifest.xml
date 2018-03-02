@@ -33,6 +33,8 @@
         </activity>
         <activity android:name="com.example.a00327927.animator.ResilientBallActivity">
         </activity>
+        <activity android:name=".CustomPaintActivity">
+        </activity>
     </application>
 
 </manifest>
