@@ -13,6 +13,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.util.Calendar;
+
 /**
  * Created by chemin on 2018/1/29 16:03.
  * description：
@@ -58,6 +60,29 @@ public class PathMeasureView extends View {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int mode=MeasureSpec.getMode(widthMeasureSpec);
+        int width=MeasureSpec.getSize(widthMeasureSpec);
+        int height=MeasureSpec.getSize(heightMeasureSpec);
+        int heightMode=MeasureSpec.getSize(heightMeasureSpec);
+        switch (mode){
+            case MeasureSpec.AT_MOST:
+                width=400;
+                height=400;
+                break;
+            case MeasureSpec.EXACTLY:
+
+                break;
+            case MeasureSpec.UNSPECIFIED:
+                break;
+            default:
+        }
+
+        setMeasuredDimension(width,height);
+    }
+
+    @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mWidth=w/2;
@@ -79,7 +104,7 @@ public class PathMeasureView extends View {
 //        canvas.drawPath(dst,mPaint);
 
         Path path=new Path();
-        path.addCircle(0,0,400, Path.Direction.CW);
+        path.addCircle(0,0,200, Path.Direction.CW);
 
         PathMeasure pathMeasure=new PathMeasure(path,true);
 

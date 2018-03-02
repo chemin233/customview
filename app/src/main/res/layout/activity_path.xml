@@ -9,9 +9,10 @@
 
 
 
-    <!--<com.example.a00327927.customview.DrawPath-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"/>-->
+    <com.example.a00327927.customview.DrawPath
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <com.example.a00327927.customview.RadarView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
