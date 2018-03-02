@@ -137,8 +137,7 @@ public class RadarView extends View {
         float divider=radius/(side-1);
         for (int i = 0; i <side; i++) {
             float currentR=i*divider;
-            Log.e("cm","currentR--"+currentR+",angle--"+angle+",radius---"+divider);
-
+            Log.e("cm","currentR--"+currentR+",angle==="+angle+",radius==="+divider);
             mPath.reset();
             for (int j=0;j<count;j++){
                 if (j==0){
@@ -189,6 +188,8 @@ public class RadarView extends View {
         //测量文字的高度
         Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
         float textHeight = fontMetrics.descent - fontMetrics.ascent;
+        Log.e("cm","descent=="+fontMetrics.descent+",ascent=="+fontMetrics.ascent);
+
         //算出中心点到文字的半径
         float textRadius =textHeight+radius;
         //算出文字开始绘制位置的x,y
