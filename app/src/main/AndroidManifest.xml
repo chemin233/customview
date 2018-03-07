@@ -35,6 +35,8 @@
         </activity>
         <activity android:name=".CustomPaintActivity">
         </activity>
+        <activity android:name="com.example.a00327927.animator.Rotate3DAnimationActivity">
+        </activity>
     </application>
 
 </manifest>

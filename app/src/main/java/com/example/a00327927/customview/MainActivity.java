@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.a00327927.animator.ResilientBallActivity;
+import com.example.a00327927.animator.Rotate3DAnimation;
+import com.example.a00327927.animator.Rotate3DAnimationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn7;
     private Button btn8;
     private Button btn9;
+    private Button btn10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btn7= (Button) findViewById(R.id.custom_bt_pathmeasure);
         btn8= (Button) findViewById(R.id.custom_bt_resilient);
         btn9= (Button) findViewById(R.id.custom_bt_custom_paint);
+        btn10= (Button) findViewById(R.id.custom_bt_rotation);
     }
     private void initData() {
 
@@ -100,6 +104,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,CustomPaintActivity.class));
+            }
+        });
+
+        btn10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,Rotate3DAnimationActivity.class));
             }
         });
     }
