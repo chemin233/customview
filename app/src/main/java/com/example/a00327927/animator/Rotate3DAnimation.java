@@ -3,6 +3,7 @@ package com.example.a00327927.animator;
 import android.content.Context;
 import android.graphics.Camera;
 import android.graphics.Matrix;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
@@ -50,6 +51,7 @@ public class Rotate3DAnimation extends Animation {
         float centerY=mCenterY;
         Camera camera=mCamera;
         Matrix matrix=t.getMatrix();
+        Log.e("cm","初始 matrix---"+matrix.toShortString());
         camera.save();
 
         if (mReverse){
@@ -70,6 +72,7 @@ public class Rotate3DAnimation extends Animation {
 
         matrix.preTranslate(-centerX,-centerY);
         matrix.postTranslate(centerX,centerY);
+        Log.e("cm","结束 matrix---"+matrix.toShortString());
 
 
     }

@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.a00327927.animator.ResilientBallActivity;
 import com.example.a00327927.animator.Rotate3DAnimation;
 import com.example.a00327927.animator.Rotate3DAnimationActivity;
+import com.example.a00327927.matrix.MatrixActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn8;
     private Button btn9;
     private Button btn10;
+    private Button btn11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         btn8= (Button) findViewById(R.id.custom_bt_resilient);
         btn9= (Button) findViewById(R.id.custom_bt_custom_paint);
         btn10= (Button) findViewById(R.id.custom_bt_rotation);
+        btn11= (Button) findViewById(R.id.custom_bt_matrix);
     }
     private void initData() {
 
@@ -111,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,Rotate3DAnimationActivity.class));
+            }
+        });
+
+        btn11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,MatrixActivity.class));
             }
         });
     }

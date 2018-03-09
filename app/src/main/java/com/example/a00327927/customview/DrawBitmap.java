@@ -9,6 +9,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.Xfermode;
+import android.hardware.Camera;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
