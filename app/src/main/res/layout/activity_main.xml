@@ -12,78 +12,89 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-    <Button
-        android:id="@+id/custom_tv_canvas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="canvas操作"
-      />
-    <Button
-        android:id="@+id/custom_tv_bezier2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="二阶贝塞尔曲线"
-        />
-    <Button
-        android:id="@+id/custom_tv_bezier3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="三阶贝塞尔曲线"
-        />
 
-    <Button
-        android:id="@+id/custom_bt_circleview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="饼图"
-        />
+        <Button
+            android:id="@+id/custom_tv_canvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="canvas操作"
+            />
 
-    <Button
-        android:id="@+id/custom_bt_circle_by_bezier"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="测试项目"
-        />
-    <Button
-        android:id="@+id/custom_bt_pathview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="path的使用"
-        />
+        <Button
+            android:id="@+id/custom_tv_bezier2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="二阶贝塞尔曲线"
+            />
 
-    <Button
-        android:id="@+id/custom_bt_pathmeasure"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PathMeasure的使用"
-        />
+        <Button
+            android:id="@+id/custom_tv_bezier3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="三阶贝塞尔曲线"
+            />
 
-    <Button
-        android:id="@+id/custom_bt_resilient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="弹性小球"
-        />
+        <Button
+            android:id="@+id/custom_bt_circleview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="饼图"
+            />
 
-    <Button
-        android:id="@+id/custom_bt_custom_paint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="自定义画笔"
-        />
+        <Button
+            android:id="@+id/custom_bt_circle_by_bezier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试项目"
+            />
 
-    <Button
-        android:id="@+id/custom_bt_rotation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="3DRotation"
-        />
+        <Button
+            android:id="@+id/custom_bt_pathview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="path的使用"
+            />
+
+        <Button
+            android:id="@+id/custom_bt_pathmeasure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PathMeasure的使用"
+            />
+
+        <Button
+            android:id="@+id/custom_bt_resilient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="弹性小球"
+            />
+
+        <Button
+            android:id="@+id/custom_bt_custom_paint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义画笔"
+            />
+
+        <Button
+            android:id="@+id/custom_bt_rotation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3DRotation"
+            />
 
         <Button
             android:id="@+id/custom_bt_matrix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Metrix 测试"
+            />
+
+        <Button
+            android:id="@+id/custom_bt_keyfram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="key_fram"
             />
     </LinearLayout>
 

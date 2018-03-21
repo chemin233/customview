@@ -39,6 +39,8 @@
         </activity>
         <activity android:name="com.example.a00327927.matrix.MatrixActivity">
         </activity>
+        <activity android:name="com.example.a00327927.animator.PropertyValuesHolderActivity">
+        </activity>
     </application>
 
 </manifest>

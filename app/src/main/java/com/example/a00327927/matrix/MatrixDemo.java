@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import java.lang.reflect.Array;
 
 /**
  * Created by chemin on 2018/3/8 09:53.
@@ -61,4 +60,5 @@ public class MatrixDemo extends View {
         canvas.drawRect(0,0,100,100,mPaint);
 
     }
+
 }
