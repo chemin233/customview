@@ -55,6 +55,7 @@ public class AnimatorSetDemo extends View {
     private boolean isFirstDraw = true;
     private float mFraction;
     private int maxWidth;//自定义view最大宽度
+    private ValueAnimator mValueAnimator;
 
     public AnimatorSetDemo(Context context) {
         this(context, null);
@@ -100,7 +101,7 @@ public class AnimatorSetDemo extends View {
         degree = Math.PI / 2 / (mBitmaps.size()-2);
         Log.i(TAG, "degree---" + degree);
 
-        //初始化移动最大距离
+        //初始化位移最大距离
         mEndValue = radius;
         //初始化最大边距
         maxWidth=picWidth;
@@ -171,7 +172,7 @@ public class AnimatorSetDemo extends View {
                 int y =-(int) (mStartLengh * Math.sin(rad));
                 canvas.drawBitmap(mBitmaps.get(i), x, y, mPaint);
                 rad += degree;
-//                Log.e(TAG, "rad--" + rad + ",x--" + x + ",y--" + y);
+                Log.e(TAG, "rad--" + rad + ",x--" + x + ",y--" + y);
             }
 
             mPaint.setAlpha(255);
@@ -185,24 +186,29 @@ public class AnimatorSetDemo extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
+
             case MotionEvent.ACTION_UP:
-                isKeepAway = !isKeepAway;
-                doAnimator(mStartLengh, mEndValue);
-                Log.e("cm", "开始actionDown---->");
+                float x = event.getX();
+                float y = event.getY();
+                Log.e(TAG,"picWidht===="+picWidth+",radius=="+radius+",,,,,x------------->"+x+",y-------->"+y);
+
+                if (mValueAnimator==null||!mValueAnimator.isRunning()){//如果
+                    isKeepAway = !isKeepAway;
+                    doAnimator(mStartLengh, mEndValue);
+                }
+//                Log.e("cm", "开始actionDown---->");
                 break;
         }
         return true;
     }
 
     private void doAnimator(float startValue, float endValue) {
-
-
-
-        ValueAnimator valueAnimator = ValueAnimator.ofFloat(startValue, endValue);
+        mValueAnimator = ValueAnimator.ofFloat(startValue, endValue);
 //        Log.e("cm", "start---" + mStartLengh + ",end--" + radius);
-        valueAnimator.setDuration(800);
-        valueAnimator.setInterpolator(new BounceInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        mValueAnimator.setDuration(800);
+        mValueAnimator.setInterpolator(new BounceInterpolator());
+
+        mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 mStartLengh = (float) animation.getAnimatedValue();
@@ -214,7 +220,7 @@ public class AnimatorSetDemo extends View {
             }
         });
 
-        valueAnimator.addListener(new AnimatorListenerAdapter() {
+        mValueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
@@ -227,7 +233,7 @@ public class AnimatorSetDemo extends View {
                 }
             }
         });
-        valueAnimator.start();
+        mValueAnimator.start();
     }
 
     /**
