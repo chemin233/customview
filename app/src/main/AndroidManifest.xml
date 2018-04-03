@@ -41,6 +41,8 @@
         </activity>
         <activity android:name="com.example.a00327927.animator.PropertyValuesHolderActivity">
         </activity>
+        <activity android:name="com.example.a00327927.animator.AnimatorMenuActivity">
+        </activity>
     </application>
 
 </manifest>

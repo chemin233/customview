@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.a00327927.animator.AnimatorMenuActivity;
 import com.example.a00327927.animator.PropertyValuesHolderActivity;
 import com.example.a00327927.animator.ResilientBallActivity;
 import com.example.a00327927.animator.Rotate3DAnimation;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn10;
     private Button btn11;
     private Button btn12;
+    private Button btn13;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         btn10= (Button) findViewById(R.id.custom_bt_rotation);
         btn11= (Button) findViewById(R.id.custom_bt_matrix);
         btn12= (Button) findViewById(R.id.custom_bt_keyfram);
+        btn13= (Button) findViewById(R.id.custom_bt_animator_menu);
     }
     private void initData() {
 
@@ -131,6 +134,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,PropertyValuesHolderActivity.class));
+            }
+        });
+
+        btn13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AnimatorMenuActivity.class));
             }
         });
     }

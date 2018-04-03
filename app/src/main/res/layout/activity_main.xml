@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="二阶贝塞尔曲线"
+            android:visibility="gone"
             />
 
         <Button
@@ -39,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="饼图"
+            android:visibility="gone"
             />
 
         <Button
@@ -67,6 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="弹性小球"
+            android:visibility="gone"
             />
 
         <Button
@@ -88,6 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Metrix 测试"
+            android:visibility="gone"
             />
 
         <Button
@@ -95,6 +99,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="key_fram"
+            />
+
+        <Button
+            android:id="@+id/custom_bt_animator_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="animaitor_menu"
             />
     </LinearLayout>
 
