@@ -9,7 +9,6 @@
 <com.example.a00327927.animator.AnimatorSetDemo
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#00fff6"
     android:layout_alignParentRight="true"
     android:layout_alignParentBottom="true"
     />
