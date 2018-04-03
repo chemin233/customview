@@ -190,6 +190,7 @@ public class AnimatorSetDemo extends View {
             case MotionEvent.ACTION_UP:
                 float x = event.getX();
                 float y = event.getY();
+
                 Log.e(TAG,"picWidht===="+picWidth+",radius=="+radius+",,,,,x------------->"+x+",y-------->"+y);
 
                 if (mValueAnimator==null||!mValueAnimator.isRunning()){//如果
