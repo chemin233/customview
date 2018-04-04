@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn11;
     private Button btn12;
     private Button btn13;
+    private Button btn14;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btn11= (Button) findViewById(R.id.custom_bt_matrix);
         btn12= (Button) findViewById(R.id.custom_bt_keyfram);
         btn13= (Button) findViewById(R.id.custom_bt_animator_menu);
+        btn14= (Button) findViewById(R.id.custom_bt_region);
     }
     private void initData() {
 
@@ -141,6 +143,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,AnimatorMenuActivity.class));
+            }
+        });
+
+        btn14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,RegionActivity.class));
             }
         });
     }

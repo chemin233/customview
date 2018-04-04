@@ -43,6 +43,8 @@
         </activity>
         <activity android:name="com.example.a00327927.animator.AnimatorMenuActivity">
         </activity>
+        <activity android:name=".RegionActivity">
+        </activity>
     </application>
 
 </manifest>

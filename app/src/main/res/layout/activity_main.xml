@@ -55,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="path的使用"
+            android:visibility="gone"
             />
 
         <Button
@@ -106,6 +107,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="animaitor_menu"
+            />
+        <Button
+            android:id="@+id/custom_bt_region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Region_Demo"
             />
     </LinearLayout>
 
