@@ -1,15 +1,15 @@
 package com.example.a00327927.customview;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.a00327927.activity.ControlMenuActivity;
 import com.example.a00327927.animator.AnimatorMenuActivity;
 import com.example.a00327927.animator.PropertyValuesHolderActivity;
 import com.example.a00327927.animator.ResilientBallActivity;
-import com.example.a00327927.animator.Rotate3DAnimation;
 import com.example.a00327927.animator.Rotate3DAnimationActivity;
 import com.example.a00327927.matrix.MatrixActivity;
 
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn12;
     private Button btn13;
     private Button btn14;
+    private Button btn15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         btn12= (Button) findViewById(R.id.custom_bt_keyfram);
         btn13= (Button) findViewById(R.id.custom_bt_animator_menu);
         btn14= (Button) findViewById(R.id.custom_bt_region);
+        btn15= (Button) findViewById(R.id.custom_bt_control_menu);
     }
     private void initData() {
 
@@ -150,6 +152,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,RegionActivity.class));
+            }
+        });
+        btn15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ControlMenuActivity.class));
             }
         });
     }

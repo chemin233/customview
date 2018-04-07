@@ -19,23 +19,23 @@ public class MotionEventActivity extends AppCompatActivity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.e(TAG,"dispatchTouchEvent---activity");
+        Log.e(TAG,"dispatchTouchEvent---ControlMenuActivity");
 
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.e(TAG,"onTouchEvent---activity");
+        Log.e(TAG,"onTouchEvent---ControlMenuActivity");
         return super.onTouchEvent(event);
     }
 
     public void montionGroupBClick(View view) {
-        Log.e("activity","-------montionGroupBClick-----B");
+        Log.e("ControlMenuActivity","-------montionGroupBClick-----B");
     }
 
     public void montionGroupAClick(View view) {
-        Log.e("activity","-------montionGroupAClick-----A");
+        Log.e("ControlMenuActivity","-------montionGroupAClick-----A");
 
     }
 }
