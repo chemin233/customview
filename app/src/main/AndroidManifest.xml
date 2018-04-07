@@ -45,7 +45,12 @@
         </activity>
         <activity android:name=".RegionActivity">
         </activity>
-        <activity android:name="com.example.a00327927.activity.ControlMenuActivity">
+        <activity
+            android:name="com.example.a00327927.activity.ControlMenuActivity"
+            android:hardwareAccelerated="false"/>
+        <activity android:name="com.example.a00327927.activity.PorductionListActivity">
+        </activity>
+        <activity android:name="com.example.a00327927.activity.ProductDetailActivity">
         </activity>
     </application>
 

@@ -8,6 +8,7 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -126,6 +127,7 @@ public class RemoteControlMenu extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        Log.e(TAG,"onDraw====================>");
         //移动画布
         canvas.translate(mCenterX, mCenterY);
         if (mMenuMatrix.isIdentity()) {
@@ -140,6 +142,7 @@ public class RemoteControlMenu extends View {
 
         if (isPress){
             mMPaint.setColor(mPressColor);
+            Log.e(TAG,"press-----changed-------->");
             switch (pressId){
                 case 1:
                     canvas.drawPath(mBelowPath,mMPaint);
@@ -176,17 +179,17 @@ public class RemoteControlMenu extends View {
 
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
+                Log.e(TAG,"action_down---->");
                 isPress = true;
                 checkClickArea(mapX, mapY);
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
+                Log.e(TAG,"action_up---->");
                 isPress = false;
                 pressId=0;
                 invalidate();
                 break;
-            default:
-                isPress = false;
         }
         return true;
     }
