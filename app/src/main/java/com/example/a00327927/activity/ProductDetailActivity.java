@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.a00327927.customview.R;
 import com.example.a00327927.fragments.ControlMenuFrag;
+import com.example.a00327927.fragments.CustomPopMenuFrag;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
@@ -22,6 +23,8 @@ public class ProductDetailActivity extends AppCompatActivity {
         Fragment fragment=null;
         if (content.equals("自定义菜单按钮")){
              fragment=new ControlMenuFrag();
+        }else if (content.equalsIgnoreCase("自定义弹出菜单")){
+            fragment=new CustomPopMenuFrag();
         }
 
         FragmentManager fm=getFragmentManager();

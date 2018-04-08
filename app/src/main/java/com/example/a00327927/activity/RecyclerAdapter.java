@@ -2,6 +2,7 @@ package com.example.a00327927.activity;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RcHold
     private List<String> mData;
     private Context mContext;
     private View.OnClickListener mListener;
+    private final static String TAG="RecyclerAdapter";
 
     public RecyclerAdapter(Context context,List<String> data){
         this.mData=data;
@@ -35,6 +37,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RcHold
 
     @Override
     public void onBindViewHolder(RcHolder holder, int position) {
+        Log.e(TAG,"onBindViewHolder----->"+mData.size());
         holder.mTvShow.setText(mData.get(position));
         holder.mTvShow.setTag(position);
         holder.mTvShow.setOnClickListener(mListener);
@@ -47,7 +50,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RcHold
 
     class RcHolder extends RecyclerView.ViewHolder{
 
-        private TextView mTvShow;
+        TextView mTvShow;
 
         public RcHolder(View itemView) {
             super(itemView);

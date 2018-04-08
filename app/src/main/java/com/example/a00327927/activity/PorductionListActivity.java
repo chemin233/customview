@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.a00327927.customview.R;
@@ -17,6 +18,7 @@ public class PorductionListActivity extends AppCompatActivity {
     private RecyclerView mRc;
     private RecyclerAdapter mRcAdapter;
     private List<String> mData;
+    private final static String TAG="PorductionListActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +32,18 @@ public class PorductionListActivity extends AppCompatActivity {
     private void init() {
 
         mRc = (RecyclerView) findViewById(R.id.rc_show);
-        mRc.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        LinearLayoutManager layout = new LinearLayoutManager(this);
+        layout.setOrientation(LinearLayoutManager.VERTICAL);
+        mRc.setLayoutManager(layout);
 
     }
 
     private void initData() {
         mData = new ArrayList<>();
         mData.add("自定义菜单按钮");
-//        mData.add("进阶");
+        mData.add("自定义弹出菜单");
         mRcAdapter = new RecyclerAdapter(this, mData);
+        Log.e(TAG,"size-----"+mData.size());
         mRc.setAdapter(mRcAdapter);
     }
 

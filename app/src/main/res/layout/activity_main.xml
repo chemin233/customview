@@ -14,6 +14,12 @@
         >
 
         <Button
+            android:id="@+id/custom_bt_control_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义view合集"/>
+
+        <Button
             android:id="@+id/custom_tv_canvas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="测试项目"
+            android:visibility="gone"
             />
 
         <Button
@@ -109,20 +116,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="animaitor_menu"
+            android:visibility="visible"
             />
         <Button
             android:id="@+id/custom_bt_region"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Region_Demo"
+            android:visibility="gone"
             />
 
-        <Button
-            android:id="@+id/custom_bt_control_menu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="自定义view合集"
-            />
     </LinearLayout>
 
 

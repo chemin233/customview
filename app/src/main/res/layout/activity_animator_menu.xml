@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     tools:context="com.example.a00327927.animator.AnimatorMenuActivity">
 <com.example.a00327927.animator.AnimatorSetDemo
+    android:id="@+id/animator_set"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentRight="true"
