@@ -30,14 +30,14 @@ import java.util.List;
  * description：
  *
  * ----------遇到的问题-----------------
- * 在开启硬件加速的时候
+ * 在开启硬件加速的时候或者没开启加速
  * viewGroup使用layout_alignParentBottom属性的时候,
  * 使用canvas.getMatrix().invert() 方式得到的逆矩阵
- * 然后转换getX或者getRawX坐标后都不正确
- * 采用getX()然后自己计算坐标解决了问题
+ * 然后转换getRawX坐标后都不正确
+ * 采用getX()然后自己计算坐标解决了问题或者使用getX(),使用逆矩阵也可以!
  */
 
-public class AnimatorSetDemo extends View {
+public class AnimatorSetDemo2 extends View {
 
     private int mCenterX, mCenterY;
     private float radius;//伸缩半径
@@ -55,7 +55,7 @@ public class AnimatorSetDemo extends View {
     private float mStartLengh;
     private float mEndValue;
     private double degree;
-    private final String TAG = AnimatorSetDemo.class.getSimpleName();
+    private final String TAG = AnimatorSetDemo2.class.getSimpleName();
     private boolean isFirstDraw = true;
     private float mFraction;
     private int maxWidth;//自定义view最大宽度
@@ -64,15 +64,15 @@ public class AnimatorSetDemo extends View {
     private Matrix mMenuMatrix;
     private Context mContext;
 
-    public AnimatorSetDemo(Context context) {
+    public AnimatorSetDemo2(Context context) {
         this(context, null);
     }
 
-    public AnimatorSetDemo(Context context, @Nullable AttributeSet attrs) {
+    public AnimatorSetDemo2(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public AnimatorSetDemo(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public AnimatorSetDemo2(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 //        setLayerType(View.LAYER_TYPE_SOFTWARE,null);//关闭硬件加速,否则event.getRowX 的值不正确
         init(context);
@@ -160,7 +160,7 @@ public class AnimatorSetDemo extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.e(TAG,"是否硬件加速:"+canvas.isHardwareAccelerated());
+//        Log.e(TAG,"是否硬件加速:"+canvas.isHardwareAccelerated());
         if (mBitmaps != null && mBitmaps.size() > 1) {
             double rad = 0;
             if (isFirstDraw) {//第一次绘制
@@ -173,6 +173,10 @@ public class AnimatorSetDemo extends View {
                 mPaint.setAlpha(255);
                 //添加菜单按钮的区域
                 bitmapRegions.add(new Region(0,0,picHeight,picHeight));
+                if (mMenuMatrix.isIdentity()){
+                    //获取当前矩阵对应的逆矩阵
+                    canvas.getMatrix().invert(mMenuMatrix);
+                }
                 canvas.drawBitmap(mBitmaps.get(mBitmaps.size() - 1), 0, 0, mPaint);
             } else {
                 canvas.translate(maxWidth - picWidth, maxWidth - picWidth);
@@ -187,11 +191,12 @@ public class AnimatorSetDemo extends View {
                     int y = -(int) (mStartLengh * Math.sin(rad));
                     canvas.drawBitmap(mBitmaps.get(i), x, y, mPaint);
                     if (maxWidth == radius + picWidth) {//如果图片已经到了指定位置,开始创建对应region
-//                        if (mMenuMatrix.isIdentity()){
-//                            //获取当前矩阵对应的逆矩阵
-//                            canvas.getMatrix().invert(mMenuMatrix);
-//                        }
+                        if (mMenuMatrix.isIdentity()){
+                            //获取当前矩阵对应的逆矩阵
+                            canvas.getMatrix().invert(mMenuMatrix);
+                        }
 //                        Log.e(TAG,"maxWidht-------->");
+                        //这里是原始区域
                         Region region = new Region();
                         region.set(x, y, x + picWidth, y + picHeight);
                         bitmapRegions.add(region);
@@ -219,25 +224,30 @@ public class AnimatorSetDemo extends View {
                     points[1] = event.getY();
                     checkRegion(points);
                 }
+
                 break;
         }
         return super.onTouchEvent(event);
     }
 
     private void checkRegion(float[] points) {
-        Log.e(TAG, "简单转换后,点击了第X===" +( -maxWidth+(int) points[0] +picWidth)+ "=======>Y===" + (-maxWidth+(int) points[1]+picHeight));
+        mMenuMatrix.mapPoints(points);
+        Log.e(TAG,"menuMatrix---->"+mMenuMatrix.toShortString());
+//        Log.e(TAG, "简单转换后,点击了第X===" +( -maxWidth+(int) points[0] +picWidth)+ "=======>Y===" + (-maxWidth+(int) points[1]+picHeight));
+        Log.e(TAG, "简单转换后,点击了第X===" +((int) points[0] )+ "=======>Y===" + ((int) points[1]));
         for (int i = 0; i < bitmapRegions.size(); i++) {
-            if (bitmapRegions.get(i).contains((-maxWidth+(int) points[0]+picWidth),(-maxWidth+(int) points[1])+picHeight)) {
+            Rect bounds = bitmapRegions.get(i).getBounds();
+            Log.e(TAG, "bounds---->" + bounds.toString());
+            if (bitmapRegions.get(i).contains((+(int) points[0]),((int) points[1]))) {
                 Toast.makeText(mContext, "点击了第" + (i) + "个图片!", Toast.LENGTH_SHORT).show();
+                Log.i(TAG,"点击了第" + (i) + "个图片!");
                 bitmapRegions.clear();//清除之前保存的区域
                 bitmapRegions.add(new Region(0,0,picHeight,picHeight));//添加菜单按钮
+                //开始动画
                 if (mValueAnimator == null || !mValueAnimator.isRunning()) {
                     isKeepAway = !isKeepAway;
                     doAnimator(mStartLengh, mEndValue);
                 }
-            } else {
-                Rect bounds = bitmapRegions.get(i).getBounds();
-                Log.e(TAG, "bounds---->" + bounds.toString());
             }
         }
 
@@ -263,6 +273,7 @@ public class AnimatorSetDemo extends View {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
+                mMenuMatrix.reset();
                 if (isKeepAway) {
                     mStartLengh = radius;
                     mEndValue = 0;

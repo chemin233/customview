@@ -20,6 +20,9 @@ import android.view.View;
  * 转换点击坐标
  * 判断点击位置所在的区域
  * 响应点击事件
+ *------遇到的问题-------
+ * 在关闭硬件加速的情况下,布局里面使用margin或者padding都是使getRawX坐标计算不准确!
+ * 这个时候需要使用getX/getY
  */
 
 public class RemoteControlMenu extends View {
@@ -50,6 +53,7 @@ public class RemoteControlMenu extends View {
 
     public RemoteControlMenu(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setLayerType(View.LAYER_TYPE_SOFTWARE,null);//关闭硬件加速
         init();
     }
 
@@ -127,7 +131,7 @@ public class RemoteControlMenu extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.e(TAG,"onDraw====================>");
+        Log.e(TAG,"onDraw====================>"+canvas.isHardwareAccelerated());
         //移动画布
         canvas.translate(mCenterX, mCenterY);
         if (mMenuMatrix.isIdentity()) {
@@ -142,7 +146,7 @@ public class RemoteControlMenu extends View {
 
         if (isPress){
             mMPaint.setColor(mPressColor);
-            Log.e(TAG,"press-----changed-------->");
+//            Log.e(TAG,"press-----changed-------->");
             switch (pressId){
                 case 1:
                     canvas.drawPath(mBelowPath,mMPaint);
@@ -167,8 +171,9 @@ public class RemoteControlMenu extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        float rawX = event.getRawX();
-        float rawY = event.getRawY();
+
+        float rawX = event.getX();
+        float rawY = event.getY();
         float[] point = new float[2];
         point[0] = rawX;
         point[1] = rawY;
@@ -179,13 +184,13 @@ public class RemoteControlMenu extends View {
 
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(TAG,"action_down---->");
+//                Log.e(TAG,"action_down---->");
                 isPress = true;
                 checkClickArea(mapX, mapY);
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e(TAG,"action_up---->");
+//                Log.e(TAG,"action_up---->");
                 isPress = false;
                 pressId=0;
                 invalidate();

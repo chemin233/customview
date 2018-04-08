@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -41,8 +41,8 @@
         </activity>
         <activity android:name="com.example.a00327927.animator.PropertyValuesHolderActivity">
         </activity>
-        <activity android:name="com.example.a00327927.animator.AnimatorMenuActivity">
-        </activity>
+        <activity android:name="com.example.a00327927.animator.AnimatorMenuActivity"
+                  android:hardwareAccelerated="false"/>
         <activity android:name=".RegionActivity">
         </activity>
         <activity
@@ -50,8 +50,8 @@
             android:hardwareAccelerated="false"/>
         <activity android:name="com.example.a00327927.activity.PorductionListActivity">
         </activity>
-        <activity android:name="com.example.a00327927.activity.ProductDetailActivity">
-        </activity>
+        <activity android:name="com.example.a00327927.activity.ProductDetailActivity"
+                  android:hardwareAccelerated="true"/>
     </application>
 
 </manifest>
