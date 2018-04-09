@@ -33,7 +33,7 @@ import java.util.List;
  * 在开启硬件加速的时候或者没开启加速
  * viewGroup使用layout_alignParentBottom属性的时候,
  * 使用canvas.getMatrix().invert() 方式得到的逆矩阵
- * 然后转换getRawX坐标后都不正确
+ * 然后转换getRawX坐标后不正确
  * 采用getX()然后自己计算坐标解决了问题或者使用getX(),使用逆矩阵也可以!
  */
 
@@ -63,6 +63,7 @@ public class AnimatorSetDemo2 extends View {
     private List<Region> bitmapRegions;
     private Matrix mMenuMatrix;
     private Context mContext;
+    private OnMenuClickListener mListener;
 
     public AnimatorSetDemo2(Context context) {
         this(context, null);
@@ -240,7 +241,10 @@ public class AnimatorSetDemo2 extends View {
             Log.e(TAG, "bounds---->" + bounds.toString());
             if (bitmapRegions.get(i).contains((+(int) points[0]),((int) points[1]))) {
                 Toast.makeText(mContext, "点击了第" + (i) + "个图片!", Toast.LENGTH_SHORT).show();
-                Log.i(TAG,"点击了第" + (i) + "个图片!");
+//                Log.i(TAG,"点击了第" + (i) + "个图片!");
+                if (mListener!=null){
+                    mListener.onClickListener(i);
+                }
                 bitmapRegions.clear();//清除之前保存的区域
                 bitmapRegions.add(new Region(0,0,picHeight,picHeight));//添加菜单按钮
                 //开始动画
@@ -295,6 +299,14 @@ public class AnimatorSetDemo2 extends View {
                 mBitmaps.get(i).recycle();
             }
         }
+    }
+
+    public void addClickListener(OnMenuClickListener onMenuClickListener){
+        this.mListener=onMenuClickListener;
+    }
+
+    interface OnMenuClickListener{
+        void onClickListener(int poistion);
     }
 
 }
