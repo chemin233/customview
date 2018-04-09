@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.a00327927.customview.R;
 import com.example.a00327927.fragments.ControlMenuFrag;
 import com.example.a00327927.fragments.CustomPopMenuFrag;
+import com.example.a00327927.fragments.WaveFragment;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
@@ -25,6 +26,8 @@ public class ProductDetailActivity extends AppCompatActivity {
              fragment=new ControlMenuFrag();
         }else if (content.equalsIgnoreCase("自定义弹出菜单")){
             fragment=new CustomPopMenuFrag();
+        }else if (content.equalsIgnoreCase("水波纹效果")){
+            fragment=new WaveFragment();
         }
 
         FragmentManager fm=getFragmentManager();

@@ -1,5 +1,6 @@
 package com.example.a00327927.animator;
 
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
@@ -29,12 +30,6 @@ import java.util.List;
  * Created by chemin on 2018/3/21 16:27.
  * description：
  *
- * ----------遇到的问题-----------------
- * 在开启硬件加速的时候
- * viewGroup使用layout_alignParentBottom属性的时候,
- * 使用canvas.getMatrix().invert() 方式得到的逆矩阵
- * 然后转换getX或者getRawX坐标后都不正确
- * 采用getX()然后自己计算坐标解决了问题
  */
 
 public class AnimatorSetDemo extends View {

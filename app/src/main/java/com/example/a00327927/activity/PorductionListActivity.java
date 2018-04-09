@@ -42,6 +42,7 @@ public class PorductionListActivity extends AppCompatActivity {
         mData = new ArrayList<>();
         mData.add("自定义菜单按钮");
         mData.add("自定义弹出菜单");
+        mData.add("水波纹效果");
         mRcAdapter = new RecyclerAdapter(this, mData);
         Log.e(TAG,"size-----"+mData.size());
         mRc.setAdapter(mRcAdapter);
