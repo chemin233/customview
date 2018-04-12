@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.a00327927.customview.R;
 import com.example.a00327927.fragments.ControlMenuFrag;
 import com.example.a00327927.fragments.CustomPopMenuFrag;
+import com.example.a00327927.fragments.GradeProgressFragment;
 import com.example.a00327927.fragments.WaveFragment;
 
 public class ProductDetailActivity extends AppCompatActivity {
@@ -28,6 +29,8 @@ public class ProductDetailActivity extends AppCompatActivity {
             fragment=new CustomPopMenuFrag();
         }else if (content.equalsIgnoreCase("水波纹效果")){
             fragment=new WaveFragment();
+        }else if (content.equalsIgnoreCase("自定义等级进度条")){
+            fragment=new GradeProgressFragment();
         }
 
         FragmentManager fm=getFragmentManager();
