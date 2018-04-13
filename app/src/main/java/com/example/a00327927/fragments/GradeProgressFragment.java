@@ -24,13 +24,20 @@ public class GradeProgressFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.frag_grade_progress_layout, container, false);
         CustomGradeProgress progress=view.findViewById(R.id.grade_progress);
-        List<String> data=new ArrayList<>();
-        data.add("100");
-        data.add("200");
-        data.add("300");
-        data.add("400");
-        data.add("500");
-        progress.setContent(data);
+
+        initData();
+
+        List<Integer> data=new ArrayList<>();
+        data.add(10);
+        data.add(200);
+        data.add(400);
+        data.add(500);
+//        data.add(1000);
+        progress.setCurrentData(data,800);
         return view;
+    }
+
+    private void initData() {
+
     }
 }
