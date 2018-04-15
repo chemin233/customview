@@ -28,12 +28,17 @@ public class GradeProgressFragment extends Fragment {
         initData();
 
         List<Integer> data=new ArrayList<>();
+        List<String> gradeNames=new ArrayList<>();
         data.add(10);
         data.add(200);
         data.add(400);
         data.add(500);
 //        data.add(1000);
-        progress.setCurrentData(data,800);
+        gradeNames.add("专员");
+        gradeNames.add("部长");
+        gradeNames.add("经理");
+        gradeNames.add("CEO");
+        progress.setCurrentData(data,data,gradeNames,300,5);
         return view;
     }
 

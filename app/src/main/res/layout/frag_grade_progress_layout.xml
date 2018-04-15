@@ -8,7 +8,7 @@
         android:id="@+id/grade_progress"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="200dp"
         android:background="@color/color1d7cf7"
         />
 </android.support.constraint.ConstraintLayout>
