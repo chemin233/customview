@@ -110,7 +110,6 @@ public class AddToShopCarView extends View {
                     if (mBitmap!=null) {
                         mBitmap.recycle();
                     }
-                    mAnimator.cancel();
                     if (mShopCarListener!=null) {
                         mShopCarListener.addToShopCarEnd();
                     }
