@@ -26,7 +26,7 @@ import com.example.a00327927.customview.R;
  * @date 2018/8/29 11:12.
  * description：自定义加入购物车特效
  */
-public class AddToShopCarView extends View {
+public class AddToShopCarAnimView extends View {
 
     private Path mPath;
     private Paint mPaint;
@@ -43,15 +43,15 @@ public class AddToShopCarView extends View {
     private Bitmap mBitmap;
     private ShopCarListener mShopCarListener;
 
-    public AddToShopCarView(Context context) {
+    public AddToShopCarAnimView(Context context) {
         this(context,null);
     }
 
-    public AddToShopCarView(Context context, @Nullable AttributeSet attrs) {
+    public AddToShopCarAnimView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public AddToShopCarView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public AddToShopCarAnimView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
