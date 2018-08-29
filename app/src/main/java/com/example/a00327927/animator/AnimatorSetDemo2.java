@@ -161,7 +161,6 @@ public class AnimatorSetDemo2 extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        Log.e(TAG,"是否硬件加速:"+canvas.isHardwareAccelerated());
         if (mBitmaps != null && mBitmaps.size() > 1) {
             double rad = 0;
             if (isFirstDraw) {//第一次绘制

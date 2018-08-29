@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.a00327927.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -41,8 +41,9 @@
         </activity>
         <activity android:name="com.example.a00327927.animator.PropertyValuesHolderActivity">
         </activity>
-        <activity android:name="com.example.a00327927.animator.AnimatorMenuActivity"
-                  android:hardwareAccelerated="false"/>
+        <activity
+            android:name="com.example.a00327927.animator.AnimatorMenuActivity"
+            android:hardwareAccelerated="false"/>
         <activity android:name=".RegionActivity">
         </activity>
         <activity
@@ -50,8 +51,11 @@
             android:hardwareAccelerated="false"/>
         <activity android:name="com.example.a00327927.activity.PorductionListActivity">
         </activity>
-        <activity android:name="com.example.a00327927.activity.ProductDetailActivity"
-                  android:hardwareAccelerated="true"/>
+        <activity
+            android:name="com.example.a00327927.activity.ProductDetailActivity"
+            android:hardwareAccelerated="true"/>
+        <activity android:name="com.example.a00327927.activity.ShopCarActvity">
+        </activity>
     </application>
 
 </manifest>

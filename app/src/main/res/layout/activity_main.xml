@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.a00327927.customview.MainActivity">
+    tools:context="com.example.a00327927.customview.com.example.a00327927.activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Metrix 测试"
-            android:visibility="gone"
+            android:visibility="visible"
             />
 
         <Button
@@ -124,6 +124,13 @@
             android:layout_height="wrap_content"
             android:text="Region_Demo"
             android:visibility="gone"
+            />
+
+        <Button
+            android:id="@+id/custom_bt_shopcar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="shop_car_Demo"
             />
 
     </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.a00327927.customview;
+package com.example.a00327927.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.a00327927.activity.PorductionListActivity;
 import com.example.a00327927.animator.AnimatorMenuActivity;
 import com.example.a00327927.animator.PropertyValuesHolderActivity;
 import com.example.a00327927.animator.ResilientBallActivity;
 import com.example.a00327927.animator.Rotate3DAnimationActivity;
+import com.example.a00327927.customview.Bezier2Activity;
+import com.example.a00327927.customview.Bezier3Activity;
+import com.example.a00327927.customview.CircleViewActivity;
+import com.example.a00327927.customview.CustomPaintActivity;
+import com.example.a00327927.customview.CustomeRectActivity;
+import com.example.a00327927.customview.PathActivity;
+import com.example.a00327927.customview.PathMeasureActivity;
+import com.example.a00327927.customview.R;
+import com.example.a00327927.customview.RegionActivity;
+import com.example.a00327927.customview.TestViewActivity;
 import com.example.a00327927.matrix.MatrixActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn13;
     private Button btn14;
     private Button btn15;
+    private Button btn16;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         btn13= (Button) findViewById(R.id.custom_bt_animator_menu);
         btn14= (Button) findViewById(R.id.custom_bt_region);
         btn15= (Button) findViewById(R.id.custom_bt_control_menu);
+        btn16= (Button) findViewById(R.id.custom_bt_shopcar);
     }
     private void initData() {
 
@@ -158,6 +169,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,PorductionListActivity.class));
+            }
+        });
+
+        btn16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ShopCarActvity.class));
             }
         });
     }
